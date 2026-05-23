@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAT MACHINE 9000</title>
+    <style>
+        :root {
+            --bg: #1a1a2e;
+            --gold: #ffd700;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: var(--bg);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6.5rem;
+            padding: 1rem;
+        }
+        .title-gif {
+            max-width: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            
+        }
+        .button-wrapper {
+            position: relative;
+            cursor: pointer;
+        }
+        .click-image {
+            display: block;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            transition: none;
+        }
+        .gif-overlay {
+            position: absolute;
+            top: 0;
+            left: 50px;
+            width: 50%;
+            height: 50%;
+            object-fit: cover;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 2;
+        }
+        .gif-overlay.visible {
+            opacity: 1;
+        }
+        .counter-text {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+        }
+        .counter-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+            padding: 0.15em 0.55em;
+        }
+        @media (max-width: 480px) {
+            .click-image { width: 150px; height: 150px; }
+            .counter-text { font-size: 1.1rem; }
+            .counter-number { font-size: 1.5rem; }
+            .title-gif { max-height: 80px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="title-gif" src="title.gif" alt="Title" draggable="false">
+        <div class="button-wrapper" id="btn">
+            <img class="click-image" id="mainImg" src="nobgdon.png" alt="Le Creatura" draggable="false">
+            <img class="gif-overlay" id="overlay" src="pat.gif" alt="Pat effect">
+        </div>
+        <p class="counter-text">
+            You have pat the La Creatura <span class="counter-number" id="counter">0</span> time<span id="plural">s</span>!
+        </p>
+    </div>
+
+    <script src="don.js"></script>
+</body>
+</html>
